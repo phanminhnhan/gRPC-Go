@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package pb;
+
+import "image.proto";
+
+option go_package = "go-grpc/pb"; 
+
+message UploadImageRequest {
+    oneof data {
+      Image info = 1;
+      bytes chunk_data = 2;
+    };
+}
+
+
+message UploadImageResponse {
+   Image info = 1;
+}
+
